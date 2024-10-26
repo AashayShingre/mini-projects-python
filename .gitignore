@@ -4,3 +4,5 @@ dist
 __pycache__
 build
 .vscode
+.DS_Store
+.pytest_cache*

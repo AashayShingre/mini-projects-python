@@ -23,3 +23,14 @@ Repository = "https://github.com/AashayShingre/coding-challenges-python.git"
 
 [project.scripts]
 pywc = "pywc.pywc:pywc_main"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+pythonpath = "."
+testpaths = [
+    "tests"
+]
+
+
