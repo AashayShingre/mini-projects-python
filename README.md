@@ -8,7 +8,8 @@ Language used - Python
 
 ## Challenges
 
-1. [Write your own wc tool](src/1/)
+1. [Write your own wc tool](/make%20a%20wc%20tool/)
+2. [Build your own JSON parser](/build%20JSON%20parser/)
 
 More to come soon ..
 
