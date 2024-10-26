@@ -14,4 +14,5 @@ More to come soon ..
 
 ## Installation and Tests
 
-Follow `README` in each folder for installation and tests
+Follow `README` in each folder for installation and tests. 
+The tests include the test txt given with each challenge
