@@ -1,8 +1,9 @@
 import argparse
 import sys
 import locale
+from typing import IO
 
-def pywc_main(): 
+def pywc_main() -> None: 
     parser = argparse.ArgumentParser(description="wc tool made with python")
     parser.add_argument("file", help="File name. If no files are specified, the standard input is used and no file name is displayed.", nargs="*") 
     parser.add_argument("-l", action="store_true", required=False, help="The number of lines in each input file is written to the standard output.")
@@ -22,7 +23,8 @@ def pywc_main():
         f =  sys.stdin.buffer
         print_counts(print_options, get_counts(f))
 
-def get_counts(file_obj): 
+def get_counts(file_obj: IO) -> dict [str, int]: 
+    """Given <class '_io.TextIOWrapper'> object, returns line count, word count, byte count, char count"""
     line_count, word_count, byte_count, char_count = 0, 0, 0, 0
     while line := file_obj.readline(): 
         line_count += 1 
@@ -32,7 +34,8 @@ def get_counts(file_obj):
     
     return {"line": line_count, "word": word_count, "byte": byte_count, "char": char_count}
 
-def print_counts(print_options, counts, file_name=""): 
+def print_counts(print_options: dict[str, bool], counts: dict[str, int], file_name: str = "") -> None: 
+    """Prints the counts same as `wc` command line utility"""
     result = []
     if print_options["line"] or print_options["all"]:
         result.append(counts["line"]) 
@@ -43,7 +46,7 @@ def print_counts(print_options, counts, file_name=""):
     elif print_options["char"]:
         result.append(counts["char"])
     
-    print("".join(str(num).rjust(8) for num in result), file_name)
+    print(*(str(num).rjust(8) for num in result), file_name)
     
 
     
