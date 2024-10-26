@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pywc"
+authors = [
+    {name = "Aashay Shingre", email = "akshingre@gmail.com"}
+]
+maintainers = [
+    {name = "Aashay Shingre", email = "akshingre@gmail.com"}
+]
+description = "This is WC tool built with python. Its a part of coding challenges by John Crickkett"
+dynamic = ["version"]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = []
+license = {text = "MIT License"}
+keywords = ["wc", "word", "character", "line"]
+
+[project.urls]
+Repository = "https://github.com/AashayShingre/coding-challenges-python.git"
+
+[project.scripts]
+pywc = "pywc.pywc:pywc_main"
