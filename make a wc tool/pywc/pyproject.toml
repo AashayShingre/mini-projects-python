@@ -5,15 +5,15 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pywc"
 authors = [
-    {name = "Aashay Shingre", email = "akshingre@gmail.com"}
+    {name = "Aashay Shingre"}
 ]
 maintainers = [
-    {name = "Aashay Shingre", email = "akshingre@gmail.com"}
+    {name = "Aashay Shingre"}
 ]
 description = "This is WC tool built with python. Its a part of coding challenges by John Crickkett"
 dynamic = ["version"]
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 dependencies = []
 license = {text = "MIT License"}
 keywords = ["wc", "word", "character", "line"]

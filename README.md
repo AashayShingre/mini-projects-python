@@ -4,7 +4,7 @@
 
 This repository contains my solutions to John Crickett's Coding Challenges in Python. The challenges are available at [https://codingchallenges.fyi/challenges/intro](https://codingchallenges.fyi/challenges/intro).
 
-Language used - Python
+Language used - Python >= 3.11
 
 ## Challenges
 
@@ -15,5 +15,6 @@ More to come soon ..
 
 ## Installation and Tests
 
-Follow `README` in each folder for installation and tests. 
-The tests include the test txt given with each challenge
+1. Create vitrual environment.
+
+2. Follow `README` in each folder for installation and tests. The tests include the test txt given with each challenge. 
