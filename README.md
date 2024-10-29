@@ -10,6 +10,7 @@ Language used - Python >= 3.11
 
 1. [Write your own wc tool](/make%20a%20wc%20tool/)
 2. [Build your own JSON parser](/build%20JSON%20parser/)
+3. [Build your own compression tool](/compression%20tool/)
 
 More to come soon ..
 
