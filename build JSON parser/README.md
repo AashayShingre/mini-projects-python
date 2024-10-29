@@ -6,3 +6,7 @@
 ### To run tests 
 
 `pytest`
+
+If you just want to test the cases from the challenge, run 
+
+`pytest test_read.py`
