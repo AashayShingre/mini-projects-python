@@ -1,3 +1,8 @@
+### Build your own json parser 
+
+https://codingchallenges.fyi/challenges/challenge-json-parser
+
+
 ### To run the app
 
 `python -m app.read [<json_file1> ...]` 
