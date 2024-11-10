@@ -1,3 +1,29 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycompress"
+authors = [
+    {name = "Aashay Shingre"}
+]
+maintainers = [
+    {name = "Aashay Shingre"}
+]
+description = "This is WC tool built with python. Its a part of coding challenges by John Crickkett"
+dynamic = ["version"]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["bitarray"]
+license = {text = "MIT License"}
+keywords = ["wc", "word", "character", "line"]
+
+[project.urls]
+Repository = "https://github.com/AashayShingre/coding-challenges-python.git"
+
+[project.scripts]
+pycompress = "app.compress_tool:compress"
+
 [tool.pytest.ini_options]
 addopts = [
     "--import-mode=importlib",
