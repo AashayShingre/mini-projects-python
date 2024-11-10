@@ -27,8 +27,7 @@ def compress():
             decompressFile(fileName)
 
 
-
-def compressFile(fileName): 
+def compressFile(fileName) -> str: 
     with open(fileName) as f: 
         (huffmanTree, resultString, strLen) = compressData(f.read()) 
 
@@ -45,16 +44,17 @@ def compressFile(fileName):
             resultFileName = f"{f.name}.compressed"
             counter = 1
             while os.path.exists(resultFileName):
-                resultFileName = f"{f.name}.{counter}.compressed"
+                resultFileName = f"{f.name}.compressed{counter}"
                 counter += 1
 
-            zipPath = f"{resultFileName}"
-            with zipfile.ZipFile(zipPath, 'w') as zipf:
+            with zipfile.ZipFile(resultFileName, 'w') as zipf:
                 zipf.write(metaFile.name, arcname="meta")
                 zipf.write(dataFile.name, arcname="data")
+            
+            return resultFileName
 
 
-def decompressFile(fileName): 
+def decompressFile(fileName) -> str: 
     with zipfile.ZipFile(fileName, 'r') as zipf:
         with zipf.open("meta", 'r') as metaFile, zipf.open("data", 'r') as dataFile:
             metaFile.seek(0)
@@ -68,13 +68,18 @@ def decompressFile(fileName):
                 char = dataFile.read().decode()
                 resultText = decompressData(strLen, char=char)
             
-            resultFileName = re.sub(r'\.compressed\d*$', '', fileName)
+            orgFileName = re.sub(r'\.compressed\d*$', '', fileName)
+            orgBaseName, extension = os.path.splitext(orgFileName)
             counter = 1
-            while os.path.exists(resultFileName+str(counter)): 
-                counter += 1 
+            while os.path.exists(f'{orgBaseName}{extension}'): 
+                orgBaseName = f'{orgBaseName}_{counter}'
+                counter += 1
             
-            with open(resultFileName+str(counter), 'w') as resultf: 
+            resultFileName = f'{orgBaseName}{extension}'
+            with open(resultFileName, 'w') as resultf: 
                 resultf.write(resultText)
+
+            return resultFileName
 
 
 
