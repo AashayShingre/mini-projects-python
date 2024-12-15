@@ -20,4 +20,4 @@ If you just want to test the cases from the challenge, run
 ----
 
 
-Note: The tools reads the file in text mode for compression. [TODO: Change it to byte more]
+Note: The tools reads the file in text mode for compression. [TODO: Change it to byte mode]
