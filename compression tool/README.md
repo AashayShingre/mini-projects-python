@@ -2,6 +2,8 @@
 
 https://codingchallenges.fyi/challenges/challenge-huffman
 
+It uses `bitarray` module to convert string of 0s and 1s into actually binary
+
 
 ### To run the app
 
@@ -20,4 +22,5 @@ If you just want to test the cases from the challenge, run
 ----
 
 
-Note: The tools reads the file in text mode for compression. [TODO: Change it to byte mode]
+Note: The tools reads the file in text mode only for compression. 
+[TODO: Change it to byte mode, and look for repeatitions of bytes]
