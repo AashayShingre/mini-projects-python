@@ -2,7 +2,7 @@ import argparse
 import sys
 import locale
 import time
-from typing import IO
+from typing import BinaryIO
 
 
 def pywc_main() -> None:
@@ -60,11 +60,12 @@ def pywc_main() -> None:
             ) as f:
                 print_counts(print_options, get_counts(f), file_name)
     else:
-        f = sys.stdin.buffer
+        f = sys.stdin.buffer  # sys.stdin is TextIO and .buffer gets the BinaryIO
         print_counts(print_options, get_counts(f))
 
 
-def get_counts(file_obj: IO) -> dict[str, int]:
+# NOTE: BinaryIO is a child of class IO. Other class is TextIO
+def get_counts(file_obj: BinaryIO) -> dict[str, int]:
     """Given <class '_io.TextIOWrapper'> object, returns line count, word count, byte count, char count"""
     line_count, word_count, byte_count, char_count = 0, 0, 0, 0
     while line := file_obj.readline():

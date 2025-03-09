@@ -10,6 +10,8 @@ https://codingchallenges.fyi/challenges/challenge-wc/
 
 ### To run tests 
 
-`cd tests` 
+The test file has the tests mentioned on the challenge.
+
+`cd pywc` 
 
 `pytest`

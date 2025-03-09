@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name="pycut"
+authors = [{name = "Aashay Shingre", email="akshingre@gmail.com"}]
+maintainers = [{name = "Aashay Shingre"}]
+
+description = "This is recreation of the cut tool in unix with python"
+dynamic = ["version"]
+readme = "README.md" 
+requires-python = ">=3.11"
+dependencies = []
+license = { text = "MIT License" }
+keywords = ["pycut", "cut", "python cut", "py cut", "py_cut"]
+
+[project.urls]
+Repository= "https://github.com/AashayShingre/coding-challenges-python.git" 
+
+[project.scripts]
+pycut = "app.pycut:cut"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
+pythonpath = "." 
+testpaths = [
+    "tests"
+]
