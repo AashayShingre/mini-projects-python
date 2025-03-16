@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 import uvicorn  # since it doesn't have app.run like flask. Rather run it with uvicorn
 import argparse
 
@@ -6,27 +6,24 @@ import argparse
 app = FastAPI()
 
 
-@app.get("/")
-def getHome():
-    return {"message": "Welcome"}
-
-
-@app.post("/echo")
-def echoMessage(data):
-    return {f"recieved {data}"}
+@app.api_route(
+    "/{path:path}",
+    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS", "TRACE"],
+)
+async def echoMessage(request: Request):
+    body = await request.body()
+    print(body)
+    return {f"recieved {body.decode()} on {request.base_url}"}
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Dummy fast api application")
     parser.add_argument(
-        "-p", "--port", type=int, default=8000, help="port for the server to listen to"
+        "--port", type=int, default=8000, help="port for the server to listen to"
     )
     parser.add_argument(
-        "-h", "--host", default="0.0.0.0", help="Host to server for the server"
-    )
-    parser.add_argument(
-        "--debug", action="store_true", help="Enable debug mode (reload=True)"
+        "--host", default="0.0.0.0", help="Host to server for the server"
     )
 
     args = parser.parse_args()
-    uvicorn.run(app, host=args.host, port=args.port, reload=args.debug)
+    uvicorn.run(app, host=args.host, port=args.port)
